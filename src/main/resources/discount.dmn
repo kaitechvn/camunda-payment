@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="discount" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.40.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.8.0">
+  <decision id="amount" name="discount">
+    <decisionTable id="DecisionTable_0m2txue" hitPolicy="ANY">
+      <input id="Input_1">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>customerType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0nq88rx" label="remainingAmount">
+        <inputExpression id="LiteralExpression_0qs7mf2" typeRef="number">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" name="discountRate" typeRef="number" />
+      <rule id="DecisionRule_11w7x0n">
+        <inputEntry id="UnaryTests_0e0e5ip">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dlnall">
+          <text>&lt;= 0</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_18pp4h8">
+          <text>0</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1020jrp">
+        <inputEntry id="UnaryTests_1sn3sms">
+          <text>GOLD</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_010s1f0">
+          <text>[1..999]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0d9b3bs">
+          <text>0.02</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1sqtn7t">
+        <inputEntry id="UnaryTests_0u3z4bx">
+          <text>GOLD</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01ajli8">
+          <text>[1000..2999]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0px3g3o">
+          <text>0.04</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ks02b5">
+        <inputEntry id="UnaryTests_1kpahjd">
+          <text>GOLD </text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0s7qbhu">
+          <text>&gt;=3000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0j8ulgu">
+          <text>0.06</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1rrp7xc">
+        <inputEntry id="UnaryTests_0078n4k">
+          <text>PREMIUM</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mkes00">
+          <text>[1..999]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1p73l3i">
+          <text>0.05</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0rxsyve">
+        <inputEntry id="UnaryTests_1m8nx3z">
+          <text>PREMIUM</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17tcal2">
+          <text>[1000..2999]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_17u7y7f">
+          <text>0.08</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0e9h95q">
+        <inputEntry id="UnaryTests_0weqf6b">
+          <text>PREMIUM</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xx1von">
+          <text>&gt;=3000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07et709">
+          <text>0.11</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="amount">
+        <dc:Bounds height="80" width="180" x="530" y="330" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
